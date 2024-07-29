@@ -13,7 +13,7 @@ This repository contains the my personel implementation of
 ![mesh2bsp](screenshot/mesh2bsp00.png)
 ### vertical mill example
 
-<video src="screenshot/bunny.mp4"></video>
+<video src="https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4"></video>
 
 ## Compile
 ```shell
