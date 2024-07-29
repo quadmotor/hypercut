@@ -11,7 +11,7 @@ This repository contains the personel implementation of
 ![randomplanecut](screenshot/randomsphere00.png)
 ### mesh 2 bsp convertion
 ![mesh2bsp](screenshot/mesh2bsp00.png)
-### vertical mill example
+### virtual milling example
 
 <video src="https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4"></video>
 ![bunny.mp4](screenshot/bunny.gif)
