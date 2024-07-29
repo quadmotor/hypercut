@@ -17,7 +17,7 @@ This repository contains the my personel implementation of
 
 ## Compile
 ```shell
-git clone --recursive hypercutter
+git clone --recursive git@github.com:quadmotor/hypercut.git
 cd hypercutter
 mkdir build
 cd build
