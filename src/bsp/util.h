@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include <Eigen/core>
+#include <Eigen/Core>
 #include <Eigen/Dense>
 #include "bsp.h"
 
