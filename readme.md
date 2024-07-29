@@ -41,3 +41,12 @@ hypercutter.exe --mesh2bsp --input drill-trace1_1.hh.sat.obj   --output  C:\tmp\
 hypercutter.exe --mill --millresolution 30 --input bunny2.obj   --output  C:\tmp\hc\randoms.obj
 ```
 
+
+## Limitations
+This repo only implement the bsp tree and limit to 128bit.
+
+## Credit
+* https://github.com/pmp-library/pmp-library
+* https://github.com/devatrun/slimcpplib
+* https://github.com/wjakob/instant-meshes/
+
