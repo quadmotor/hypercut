@@ -1,6 +1,6 @@
 # HyperCutter
 
-This repository contains the my personel implementation of 
+This repository contains the personel implementation of 
 
 > **Fast Exact Booleans for Iterated CSG using Octree-Embedded BSPs**<br/>
 > Julius Nehring-Wirxel, Philip Trettner, Leif Kobbelt <br/>
@@ -14,7 +14,7 @@ This repository contains the my personel implementation of
 ### vertical mill example
 
 <video src="https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4"></video>
-![bunny.mp4](https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4)
+![bunny.mp4](screenshot/bunny.gif)
 
 ## Compile
 ```shell
