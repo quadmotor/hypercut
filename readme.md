@@ -19,7 +19,7 @@ This repository contains the personel implementation of
 ## Compile
 ```shell
 git clone --recursive git@github.com:quadmotor/hypercut.git
-cd hypercutter
+cd hypercut
 mkdir build
 cd build
 cmake ..
