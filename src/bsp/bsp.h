@@ -1,8 +1,8 @@
 #pragma once
 #include <cstdint>
 #include <vector>
-#include <Eigen/core>
-#include <Eigen/dense>
+#include <Eigen/Core>
+#include <Eigen/Dense>
 
 #include "mesh.h"
 #include "util.h"
