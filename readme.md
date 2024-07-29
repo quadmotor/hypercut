@@ -14,7 +14,7 @@ This repository contains the my personel implementation of
 ### vertical mill example
 
 <video src="https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4"></video>
-![bunny.mp4](screenshot/bunny.mp4)
+![bunny.mp4](https://raw.githubusercontent.com/quadmotor/hypercut/main/screenshot/bunny.mp4)
 
 ## Compile
 ```shell
