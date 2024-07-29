@@ -1,6 +1,9 @@
 set (CMAKE_CXX_STANDARD 20)
 set (MYAPP hypercutter)
 
+# pmp use double
+add_compile_definitions(PMP_SCALAR_TYPE_64)
+
 
 add_executable(${MYAPP}
 ${CMAKE_SOURCE_DIR}/src/bsp/pmp/surface_mesh.cpp
@@ -21,12 +24,6 @@ main.cpp
 
 
 )
-
-# pmp use double
-add_compile_definitions(PMP_SCALAR_TYPE_64)
-
-# find_package(Catch2 REQUIRED)
-#target_link_libraries(${MYAPP} PRIVATE Catch2::Catch2WithMain)
 
 
 
