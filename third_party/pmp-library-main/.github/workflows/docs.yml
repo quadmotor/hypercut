@@ -1,0 +1,87 @@
+name: docs
+
+on:
+  push:
+    branches: [main]
+
+env:
+  EMSDK_RELEASE: 3.1.56
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -o Acquire::Retries=3 doxygen texlive-base build-essential flex bison
+
+      # - name: Fetch doxygen
+      #   run: export DOXYGEN_URL="https://github.com/doxygen/doxygen/releases/download/Release_1_9_6/doxygen-1.9.6.linux.bin.tar.gz" && mkdir doxygen && wget -O - ${DOXYGEN_URL} | tar --strip-components=1 -xz -C doxygen && echo `pwd`/doxygen/bin >> $GITHUB_PATH
+
+      - name: Create doxygen build directory
+        run: cmake -E make_directory ${{runner.workspace}}/doxybuild
+
+      - name: Build doxygen
+        shell: bash
+        working-directory: ${{runner.workspace}}/doxybuild
+        run: |
+          git clone https://github.com/doxygen/doxygen.git
+          cd doxygen
+          git checkout Release_1_9_6
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{runner.workspace}}/doxygen ..
+          make -j2 install
+          echo ${{runner.workspace}}/doxygen/bin >> $GITHUB_PATH
+
+      - name: Create emscripten build directory
+        run: cmake -E make_directory ${{runner.workspace}}/embuild
+
+      - name: Fetch emscripten
+        shell: bash
+        working-directory: ${{runner.workspace}}/embuild
+        run: |
+          git clone https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          git checkout $EMSDK_RELEASE
+          ./emsdk install $EMSDK_RELEASE
+          ./emsdk activate $EMSDK_RELEASE
+
+      - name: Configure emscripten
+        shell: bash
+        working-directory: ${{runner.workspace}}/embuild
+        run: source ./emsdk/emsdk_env.sh && emcmake cmake $GITHUB_WORKSPACE
+
+      - name: Build emscripten
+        working-directory: ${{runner.workspace}}/embuild
+        shell: bash
+        run: cmake --build . --parallel
+
+      - name: Create build directory
+        run: cmake -E make_directory ${{runner.workspace}}/build
+
+      - name: Configure CMkae
+        shell: bash
+        working-directory: ${{runner.workspace}}/build
+        run: cmake -DPMP_BUILD_VIS=OFF $GITHUB_WORKSPACE
+
+      - name: Build docs
+        working-directory: ${{runner.workspace}}/build
+        shell: bash
+        run: cmake --build . --target docs
+
+      - name: Copy emscripten demos
+        working-directory: ${{runner.workspace}}/build
+        shell: bash
+        run: mkdir docs/html/demos/ && cp ${{runner.workspace}}/embuild/*.html ${{runner.workspace}}/embuild/*.js ${{runner.workspace}}/embuild/*.data ${{runner.workspace}}/embuild/*.wasm docs/html/demos
+
+      - name: GH Pages Deployment
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{runner.workspace}}/build/docs/html
+          force_orphan: true
+          publish_branch: gh-pages
+          cname: www.pmp-library.org
