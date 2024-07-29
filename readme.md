@@ -49,4 +49,5 @@ This repo only implement the bsp tree and limit to 128bit.
 * https://github.com/pmp-library/pmp-library
 * https://github.com/devatrun/slimcpplib
 * https://github.com/wjakob/instant-meshes/
+* AABB-triangle overlap test code  
 
