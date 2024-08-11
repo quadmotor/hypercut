@@ -45,7 +45,7 @@ hypercutter.exe --mill --millresolution 30 --input bunny2.obj   --output  C:\tmp
 ## Limitations
 This repo only implement the bsp tree and limit to 128bit.
 
-## Credit
+## Acknowledge
 * meshlab
 * https://polyscope.run/py/ 
 * https://github.com/pmp-library/pmp-library
