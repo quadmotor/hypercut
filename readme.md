@@ -1,6 +1,6 @@
 # HyperCutter
 
-This repository contains the personel implementation of 
+This repository contains the implementation of 
 
 > **Fast Exact Booleans for Iterated CSG using Octree-Embedded BSPs**<br/>
 > Julius Nehring-Wirxel, Philip Trettner, Leif Kobbelt <br/>
